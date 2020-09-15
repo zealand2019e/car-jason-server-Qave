@@ -12,6 +12,9 @@ namespace CarJasonClient
         public void Start()
         {
             Car tesla = new Car() { Model = "Tesla", Color = "Blue", RegistrationNo = "abc123" };
+            AutoSale dealer = new AutoSale() {Name="Kasper", Address="Roskilde", Cars = new List<Car>() };
+            dealer.Cars.Add(new Car() { Model = "Tesla", Color = "Blue", RegistrationNo = "abc123" });
+            dealer.Cars.Add(new Car() { Model = "Ford", Color = "Black", RegistrationNo = "321cba" });
             try
             {
                 TcpClient socket = new TcpClient("localhost", 10001);
@@ -23,12 +26,8 @@ namespace CarJasonClient
 
                     try
                     {
-                        //// Word sent to the server
-                        //string LineToBeSentToServer = Console.ReadLine();
-                        //// Send the line to the server
-                        //streamWriter.WriteLine(LineToBeSentToServer);
-
-                        streamWriter.WriteLine(tesla);
+                        // Send the car in plaintext to the server
+                        streamWriter.WriteLine(dealer);
                         // flush the streamWriter
                         streamWriter.Flush();
 

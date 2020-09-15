@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ModelLib;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -43,10 +45,18 @@ namespace CarJasonClient
                     // Word recieved from the client
                     try
                     {
-                        // Word read from the client
-                        string line = streamReader.ReadLine();
-                        // Write the line to the server that is read from the client
-                        Console.WriteLine(line);
+                        // plain text object line read from the client
+                        string plaintext = streamReader.ReadLine();
+                        //// Plain text
+                        //// output plaintext object to the server
+                        //Console.WriteLine(plaintext);
+
+                        ////JSON Format
+                        //// Write the jsonline to the server that is read from the client
+                        //Console.WriteLine(JsonConvert.DeserializeObject<AutoSale>(plaintext));
+
+                        ////XML Format
+
                         streamWriter.Flush();
                     }
                     catch (IOException)

@@ -18,7 +18,7 @@ namespace ModelLib
             string temp = "";
             foreach (Car car in Cars)
             {
-                temp += car+",\n";
+                temp += car+"\n";
             }
             return temp;
         }

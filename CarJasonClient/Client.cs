@@ -1,4 +1,5 @@
 ﻿using ModelLib;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +12,6 @@ namespace CarJasonClient
     {
         public void Start()
         {
-            Car tesla = new Car() { Model = "Tesla", Color = "Blue", RegistrationNo = "abc123" };
             AutoSale dealer = new AutoSale() {Name="Kasper", Address="Roskilde", Cars = new List<Car>() };
             dealer.Cars.Add(new Car() { Model = "Tesla", Color = "Blue", RegistrationNo = "abc123" });
             dealer.Cars.Add(new Car() { Model = "Ford", Color = "Black", RegistrationNo = "321cba" });
@@ -26,8 +26,18 @@ namespace CarJasonClient
 
                     try
                     {
-                        // Send the car in plaintext to the server
-                        streamWriter.WriteLine(dealer);
+
+                        //// Plain Text
+                        //// Send the car in plaintext to the server
+                        //streamWriter.WriteLine(dealer);
+
+                        //// JSON Format
+                        //// serialize the dealer AutoSale object "Dealer" into JSON format, and send it to the server
+                        //streamWriter.WriteLine(JsonConvert.SerializeObject(dealer));
+
+                        //XML Format
+
+
                         // flush the streamWriter
                         streamWriter.Flush();
 

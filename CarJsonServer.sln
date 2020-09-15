@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarJsonServer", "CarJsonServer\CarJsonServer.csproj", "{9BFD5209-DA30-468D-A3EF-BB8EF7E11826}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarJsonServer", "CarJsonServer\CarJsonServer.csproj", "{9BFD5209-DA30-468D-A3EF-BB8EF7E11826}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarJasonClient", "CarJasonClient\CarJasonClient.csproj", "{FEF4F567-29A9-4415-B36E-D7A318753A57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLib", "ModelLib\ModelLib.csproj", "{E8C4E5C4-7C8B-4BA4-8399-9083DC9953D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{9BFD5209-DA30-468D-A3EF-BB8EF7E11826}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BFD5209-DA30-468D-A3EF-BB8EF7E11826}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BFD5209-DA30-468D-A3EF-BB8EF7E11826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEF4F567-29A9-4415-B36E-D7A318753A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF4F567-29A9-4415-B36E-D7A318753A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF4F567-29A9-4415-B36E-D7A318753A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF4F567-29A9-4415-B36E-D7A318753A57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C4E5C4-7C8B-4BA4-8399-9083DC9953D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C4E5C4-7C8B-4BA4-8399-9083DC9953D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C4E5C4-7C8B-4BA4-8399-9083DC9953D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C4E5C4-7C8B-4BA4-8399-9083DC9953D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

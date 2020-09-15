@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CarJasonClient
 {
@@ -12,6 +14,8 @@ namespace CarJasonClient
     {
         public void Start()
         {
+            XmlSerializer XMLhandler = new XmlSerializer(typeof(AutoSale));
+
             AutoSale dealer = new AutoSale() {Name="Kasper", Address="Roskilde", Cars = new List<Car>() };
             dealer.Cars.Add(new Car() { Model = "Tesla", Color = "Blue", RegistrationNo = "abc123" });
             dealer.Cars.Add(new Car() { Model = "Ford", Color = "Black", RegistrationNo = "321cba" });
@@ -23,7 +27,7 @@ namespace CarJasonClient
                     NetworkStream ns = socket.GetStream();
                     StreamReader streamReader = new StreamReader(ns);
                     StreamWriter streamWriter = new StreamWriter(ns);
-
+                    
                     try
                     {
 
@@ -36,7 +40,16 @@ namespace CarJasonClient
                         //streamWriter.WriteLine(JsonConvert.SerializeObject(dealer));
 
                         //XML Format
-
+                        string xmlformat = "";
+                        using (var sw = new StringWriter())
+                        {
+                            using (XmlWriter writer = XmlWriter.Create(sw))
+                            {
+                                XMLhandler.Serialize(writer, dealer);
+                                xmlformat = sw.ToString(); // XML to string
+                            }
+                        }
+                        streamWriter.WriteLine(xmlformat);
 
                         // flush the streamWriter
                         streamWriter.Flush();

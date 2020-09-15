@@ -7,6 +7,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CarJasonClient
 {
@@ -35,6 +37,8 @@ namespace CarJasonClient
         }
         public void DoClient(TcpClient socket)
         {
+            XmlSerializer XMLhandler = new XmlSerializer(typeof(AutoSale));
+
             using (socket)
             {
                 NetworkStream ns = socket.GetStream();
@@ -43,6 +47,7 @@ namespace CarJasonClient
                 while (true)
                 {
                     // Word recieved from the client
+
                     try
                     {
                         // plain text object line read from the client
@@ -56,7 +61,13 @@ namespace CarJasonClient
                         //Console.WriteLine(JsonConvert.DeserializeObject<AutoSale>(plaintext));
 
                         ////XML Format
+                        AutoSale xmltext;
+                        using (var reader = new StringReader(plaintext))
+                        {
+                            xmltext = XMLhandler.Deserialize(reader) as AutoSale;
+                        }
 
+                        Console.WriteLine(xmltext);
                         streamWriter.Flush();
                     }
                     catch (IOException)
